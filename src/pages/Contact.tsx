@@ -32,8 +32,10 @@ export const Contact = () => {
     event.preventDefault();
     setIsSubmitting(true);
     setResult("");
-    
-    const formData = new FormData(event.currentTarget);
+
+    const form = event.currentTarget;
+    // 1. Collect form data
+    const formData = new FormData(form);
     
     // Add your Web3Forms access key
     formData.append("access_key", "4403b8c5-10a5-4a5f-9085-3d567d1a787f");
@@ -41,25 +43,35 @@ export const Contact = () => {
     // Optional: Add a subject to the email
     formData.append("subject", "New Contact Enquiry from Integr8Cloudware");
 
+    // 2. Convert to JSON (This prevents the network error you were seeing)
+    const object = Object.fromEntries(formData.entries());
+    const json = JSON.stringify(object);
+
     try {
+      // 3. Send via Web3Forms JSON API
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: json
       });
 
       const data = await response.json();
 
-      if (data.success) {
+      if (response.status === 200) {
         setResult("Thank you! Your enquiry has been sent.");
-        event.currentTarget.reset();
+        form.reset(); // Clear the form on success
       } else {
-        console.error("Error", data);
+        console.error("Web3Forms API Error:", data);
         setResult(data.message || "Something went wrong. Please try again.");
       }
     } catch (error) {
-      console.error("Submission failed", error);
+      console.error("Submission failed:", error);
       setResult("An error occurred while sending your message. Please try again.");
     } finally {
+      // Ensure the button is re-enabled whether it succeeded or failed
       setIsSubmitting(false);
     }
   };
