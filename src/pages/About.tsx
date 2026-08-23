@@ -24,10 +24,10 @@ const values = [
 ];
 
 const team = [
-  { name: 'Arjun Mehta', role: 'Founder & Chief Integration Architect', note: '15+ years across NetSuite, Celigo & Oracle ecosystems', initials: 'AM' },
-  { name: 'Sarah Whitfield', role: 'Head of NetSuite Practice', note: 'Former Big-4 ERP lead, 60+ implementations', initials: 'SW' },
-  { name: 'Diego Alvarez', role: 'Director, Middleware Engineering', note: 'Built connector platforms processing billions of records', initials: 'DA' },
-  { name: 'Priya Nair', role: 'Head of Delivery & SLA Governance', note: 'Keeper of the 99.99% reliability standard', initials: 'PN' }
+  { name: 'Alex Vance', role: 'Founder & Chief Integration Architect', note: '15+ years across NetSuite, Celigo & Oracle ecosystems', initials: 'AM' },
+  // { name: 'Sarah Whitfield', role: 'Head of NetSuite Practice', note: 'Former Big-4 ERP lead, 60+ implementations', initials: 'SW' },
+  // { name: 'Diego Alvarez', role: 'Director, Middleware Engineering', note: 'Built connector platforms processing billions of records', initials: 'DA' },
+  // { name: 'Priya Nair', role: 'Head of Delivery & SLA Governance', note: 'Keeper of the 99.99% reliability standard', initials: 'PN' }
 ];
 
 export const About = () => {
