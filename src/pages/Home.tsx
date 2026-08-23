@@ -55,7 +55,7 @@ export const Home = () => {
               <span className="block overflow-hidden"><span className="block">Every channel.</span></span>
               <span className="block overflow-hidden"><span className="block"><span className="text-electric">Moving in sync.</span></span></span>
             </h1>
-            <span className="block overflow-hidden"><span className="block"><p className="mt-7 text-base sm:text-lg text-mutedink leading-relaxed max-w-xl">Integr8 Cloudware connects your NetSuite core to any marketplace and any 3PL in the world — Amazon, Walmart, Shopify, eBay, Target and beyond — with integrations so reliable you'll forget they exist.</p></span></span>
+            <span className="block overflow-hidden"><span className="block"><p className="mt-7 text-base sm:text-lg text-mutedink leading-relaxed max-w-xl">We provide the strategic consulting and technical engineering to seamlessly connect your NetSuite core to any marketplace or 3PL in the world — Amazon, Walmart, Shopify, eBay, Target, and beyond. We architect solutions so reliable you'll forget they exist.</p></span></span>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link data-testid="hero-cta-contact-button" className="inline-flex items-center gap-2.5 bg-obsidian text-white font-semibold px-7 py-3.5 rounded-full hover:bg-electric transition-colors duration-300 group" to="/contact">
                 Book a Discovery Call<ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
