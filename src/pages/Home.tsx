@@ -53,7 +53,7 @@ export const Home = () => {
             <h1 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] uppercase text-obsidian">
               <span className="block overflow-hidden"><span className="block">Every system.</span></span>
               <span className="block overflow-hidden"><span className="block">Every channel.</span></span>
-              <span className="block overflow-hidden"><span className="block"><span className="text-electric">One flow.</span></span></span>
+              <span className="block overflow-hidden"><span className="block"><span className="text-electric">Moving in sync.</span></span></span>
             </h1>
             <span className="block overflow-hidden"><span className="block"><p className="mt-7 text-base sm:text-lg text-mutedink leading-relaxed max-w-xl">Integr8 Cloudware connects your NetSuite core to any marketplace and any 3PL in the world — Amazon, Walmart, Shopify, eBay, Target and beyond — with integrations so reliable you'll forget they exist.</p></span></span>
             <div className="mt-9 flex flex-wrap items-center gap-4">
