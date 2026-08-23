@@ -41,7 +41,9 @@ export const Contact = () => {
     formData.append("access_key", "4403b8c5-10a5-4a5f-9085-3d567d1a787f");
     
     // Optional: Add a subject to the email
-    formData.append("subject", "New Contact Enquiry from Integr8Cloudware");
+    // formData.append("subject", "New Contact Enquiry from Integr8Cloudware");
+    // Optional: Add a subject to the email
+    formData.append("subject", `Business Enquiry from ${formData.get("name")} - Integr8Cloudware`);
 
     // 2. Convert to JSON (This prevents the network error you were seeing)
     const object = Object.fromEntries(formData.entries());
