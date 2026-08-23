@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, Clock3, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 const services = [
@@ -25,45 +25,6 @@ const steps = [
 ];
 
 export const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [result, setResult] = useState("");
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setIsSubmitting(true);
-    setResult("");
-    
-    const formData = new FormData(event.currentTarget);
-    
-    // Add your Web3Forms access key
-    formData.append("access_key", "ABCDERFDHJKOOKSODKOKDO");
-    
-    // Optional: Add a subject to the email
-    formData.append("subject", "New Contact Enquiry from Integr8Cloudware");
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setResult("Thank you! Your enquiry has been sent.");
-        event.currentTarget.reset();
-      } else {
-        console.error("Error", data);
-        setResult(data.message || "Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      console.error("Submission failed", error);
-      setResult("An error occurred while sending your message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div data-testid="contact-page">
       <section className="pt-[76px] hero-grid-bg">
@@ -121,62 +82,41 @@ export const Contact = () => {
               </div>
             </div>
             <div className="lg:col-span-7">
-              <form 
-                onSubmit={handleSubmit}
-                data-testid="contact-form" 
-                className="bg-white border border-hairline rounded-3xl p-7 sm:p-10 shadow-[0_24px_70px_rgba(10,13,20,0.06)] space-y-6"
-              >
-                {/* Honeypot Spam Protection */}
-                <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-
+              <form data-testid="contact-form" className="bg-white border border-hairline rounded-3xl p-7 sm:p-10 shadow-[0_24px_70px_rgba(10,13,20,0.06)] space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-[0.2em] text-faintink mb-2.5">Full name *</label>
-                    <input name="name" data-testid="contact-name-input" required placeholder="Jane Cooper" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300" />
+                    <input data-testid="contact-name-input" required placeholder="Jane Cooper" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300" />
                   </div>
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-[0.2em] text-faintink mb-2.5">Work email *</label>
-                    <input name="email" data-testid="contact-email-input" required type="email" placeholder="jane@company.com" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300" />
+                    <input data-testid="contact-email-input" required type="email" placeholder="jane@company.com" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300" />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-[0.2em] text-faintink mb-2.5">Company</label>
-                    <input name="company" data-testid="contact-company-input" placeholder="Company Inc." className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300" />
+                    <input data-testid="contact-company-input" placeholder="Company Inc." className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300" />
                   </div>
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-[0.2em] text-faintink mb-2.5">Monthly order volume</label>
-                    <select name="volume" data-testid="contact-volume-select" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300">
-                      {volumes.map((v, i) => <option key={i} value={v}>{v}</option>)}
+                    <select data-testid="contact-volume-select" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300">
+                      {volumes.map((v, i) => <option key={i}>{v}</option>)}
                     </select>
                   </div>
                 </div>
                 <div>
                   <label className="block text-xs font-mono uppercase tracking-[0.2em] text-faintink mb-2.5">What do you need?</label>
-                  <select name="service" data-testid="contact-service-select" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300">
-                    {services.map((s, i) => <option key={i} value={s}>{s}</option>)}
+                  <select data-testid="contact-service-select" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300">
+                    {services.map((s, i) => <option key={i}>{s}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="block text-xs font-mono uppercase tracking-[0.2em] text-faintink mb-2.5">Tell us about the project *</label>
-                  <textarea name="message" data-testid="contact-message-input" required rows={5} placeholder="Which systems are involved? What's breaking, or what are you trying to achieve?" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300 resize-none"></textarea>
+                  <textarea data-testid="contact-message-input" required rows={5} placeholder="Which systems are involved? What's breaking, or what are you trying to achieve?" className="w-full text-sm sm:text-base border border-hairline rounded-xl px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-electric/40 focus:border-electric transition-[box-shadow,border-color] duration-300 resize-none"></textarea>
                 </div>
-
-                {/* Status Message */}
-                {result && (
-                  <div className={`text-sm text-center font-medium ${result.includes("Thank you") ? "text-green-600" : "text-red-500"}`}>
-                    {result}
-                  </div>
-                )}
-
-                <button 
-                  data-testid="contact-form-submit-button" 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2.5 bg-obsidian text-white font-semibold px-8 py-4 rounded-full hover:bg-electric transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed group"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Enquiry'}
-                  {!isSubmitting && <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />}
+                <button data-testid="contact-form-submit-button" type="submit" className="w-full inline-flex items-center justify-center gap-2.5 bg-obsidian text-white font-semibold px-8 py-4 rounded-full hover:bg-electric transition-colors duration-300 disabled:opacity-60 group">
+                  Send Enquiry<ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
                 <p className="text-xs text-faintink text-center">No newsletters. No spam. A human architect replies, not a sequence.</p>
               </form>
