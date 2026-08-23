@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-electric: #0052FF;
+  --color-electric-glow: #3377FF;
+  --color-electric-emerald: #00E676;
+  --color-obsidian: #0A0D14;
+  --color-mutedink: #4B5563;
+  --color-faintink: #868C98;
+  --color-hairline: #E2E4E9;
+  --color-paper: #F9FAFB;
+}
+
+@layer base {
+  body {
+    @apply text-obsidian bg-white antialiased selection:bg-electric selection:text-white;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+}
+
+.hero-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(226, 228, 233, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 228, 233, 0.4) 1px, transparent 1px);
+  background-position: top center;
+}
+
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(10, 13, 20, 0.2);
+  color: transparent;
+}
+
+.text-outline-light {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  color: transparent;
+}
+
+.text-outline-faint {
+  -webkit-text-stroke: 1px rgba(10, 13, 20, 0.05);
+  color: transparent;
+}
+
+.spin-slow {
+  animation: spin 30s linear infinite;
+}
+
+.pulse-node {
+  animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.flow-dash {
+  stroke-dasharray: 6 12;
+  animation: flow 20s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); transform-origin: center; }
+  to { transform: rotate(360deg); transform-origin: center; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; transform-origin: center; }
+  50% { transform: scale(1.05); opacity: 1; transform-origin: center; }
+  100% { transform: scale(0.95); opacity: 0.8; transform-origin: center; }
+}
+
+@keyframes flow {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2E4E9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #868C98;
+}
+
+/* Hide scrollbar for marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
