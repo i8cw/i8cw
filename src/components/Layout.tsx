@@ -48,7 +48,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       <header data-testid="site-header" className={`fixed top-0 inset-x-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-hairline shadow-sm' : 'bg-transparent border-b border-transparent'}`}>
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 h-[76px] flex items-center justify-between">
           <Link data-testid="nav-logo-link" className="flex items-center group" to="/">
-            <img alt="Integr8 Cloudware..." className={`h-6 sm:h-7 w-auto transition-all duration-300 ${isTransparentOverDark ? 'invert mix-blend-screen' : 'mix-blend-multiply'}`} src="assets/i8cw_T.png" />
+            <img alt="Integr8 Cloudware" className={`h-6 sm:h-7 w-auto transition-all duration-300 ${isTransparentOverDark ? 'invert mix-blend-screen' : 'mix-blend-multiply'}`} src="assets/i8cw_T.png" />
           </Link>
           
           <nav className="hidden lg:flex items-center gap-9" data-testid="nav-desktop-menu">
@@ -116,7 +116,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
             <div className="lg:col-span-5">
               <Link to="/" className="inline-block">
-                <img alt="Integr8 Cloudware" className="h-8 w-auto invert mix-blend-screen" src="/i8cw_T.png" />
+                <img alt="Integr8 Cloudware" className="h-8 w-auto invert mix-blend-screen" src="assets/i8cw_T.png" />
               </Link>
               <p className="mt-6 text-sm leading-relaxed text-slate-400 max-w-sm">
                 Enterprise integration consultancy for NetSuite, Celigo, and Oracle Integration Cloud. We connect any ERP to any marketplace, any 3PL, anywhere in the world — flawlessly.
