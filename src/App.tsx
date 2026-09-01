@@ -13,6 +13,9 @@ import { CaseStudies } from './pages/CaseStudies';
 import { About } from './pages/About';
 import { Blog } from './pages/Blog';
 import { Contact } from './pages/Contact';
+import { Careers } from './pages/Careers';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { NotFound } from './pages/NotFound';
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -36,8 +39,10 @@ const AppRoutes = () => {
         <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
         <Route path="/case-studies" element={<PageTransition><CaseStudies /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
@@ -45,10 +50,12 @@ const AppRoutes = () => {
 
 export default function App() {
   return (
-    <Router>
-      <Layout>
-        <AppRoutes />
-      </Layout>
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <Layout>
+          <AppRoutes />
+        </Layout>
+      </Router>
+    </ErrorBoundary>
   );
 }

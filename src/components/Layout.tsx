@@ -30,6 +30,14 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const isActive = (path: string) => location.pathname === path;
+  const isTransparentOverDark = location.pathname === '/careers' && !isScrolled;
+
+  const getNavLinkClass = (path: string) => {
+    if (isTransparentOverDark) {
+      return isActive(path) ? 'text-white' : 'text-slate-300 hover:text-white';
+    }
+    return isActive(path) ? 'text-obsidian' : 'text-mutedink hover:text-obsidian';
+  };
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
@@ -40,38 +48,42 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       <header data-testid="site-header" className={`fixed top-0 inset-x-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-hairline shadow-sm' : 'bg-transparent border-b border-transparent'}`}>
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 h-[76px] flex items-center justify-between">
           <Link data-testid="nav-logo-link" className="flex items-center group" to="/">
-            <img alt="Integr8 Cloudware" className="h-6 sm:h-14 w-auto mix-blend-multiply" src="/assets/i8cw_T.png" />
+            <img alt="Integr8 Cloudware" className={`h-6 sm:h-7 w-auto transition-all duration-300 ${isTransparentOverDark ? 'invert mix-blend-screen' : 'mix-blend-multiply'}`} src="/i8cw.png" />
           </Link>
           
           <nav className="hidden lg:flex items-center gap-9" data-testid="nav-desktop-menu">
-            <Link data-testid="nav-link-services" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${isActive('/services') ? 'text-obsidian' : 'text-mutedink hover:text-obsidian'}`} to="/services">
+            <Link data-testid="nav-link-services" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${getNavLinkClass('/services')}`} to="/services">
               Services
               <span className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-electric origin-left transition-transform duration-300 ${isActive('/services') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </Link>
-            <Link data-testid="nav-link-case-studies" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${isActive('/case-studies') ? 'text-obsidian' : 'text-mutedink hover:text-obsidian'}`} to="/case-studies">
+            <Link data-testid="nav-link-case-studies" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${getNavLinkClass('/case-studies')}`} to="/case-studies">
               Case Studies
               <span className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-electric origin-left transition-transform duration-300 ${isActive('/case-studies') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </Link>
-            <Link data-testid="nav-link-about" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${isActive('/about') ? 'text-obsidian' : 'text-mutedink hover:text-obsidian'}`} to="/about">
+            <Link data-testid="nav-link-about" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${getNavLinkClass('/about')}`} to="/about">
               About
               <span className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-electric origin-left transition-transform duration-300 ${isActive('/about') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </Link>
-            <Link data-testid="nav-link-blog" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${isActive('/blog') ? 'text-obsidian' : 'text-mutedink hover:text-obsidian'}`} to="/blog">
+            <Link data-testid="nav-link-blog" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${getNavLinkClass('/blog')}`} to="/blog">
               Insights
               <span className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-electric origin-left transition-transform duration-300 ${isActive('/blog') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </Link>
-            <Link data-testid="nav-link-contact" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${isActive('/contact') ? 'text-obsidian' : 'text-mutedink hover:text-obsidian'}`} to="/contact">
+            <Link data-testid="nav-link-careers" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${getNavLinkClass('/careers')}`} to="/careers">
+              Careers
+              <span className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-electric origin-left transition-transform duration-300 ${isActive('/careers') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+            </Link>
+            <Link data-testid="nav-link-contact" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${getNavLinkClass('/contact')}`} to="/contact">
               Contact
               <span className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-electric origin-left transition-transform duration-300 ${isActive('/contact') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </Link>
           </nav>
           
           <div className="flex items-center gap-3">
-            <Link data-testid="nav-cta-button" className="hidden sm:inline-flex items-center gap-2 bg-obsidian text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-electric transition-colors duration-300 group" to="/contact">
+            <Link data-testid="nav-cta-button" className={`hidden sm:inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-300 group ${isTransparentOverDark ? 'bg-white text-obsidian hover:bg-electric hover:text-white' : 'bg-obsidian text-white hover:bg-electric'}`} to="/contact">
               Book a Discovery Call
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
             </Link>
-            <button onClick={toggleMenu} data-testid="nav-mobile-toggle" className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-hairline bg-white/70" aria-label="Toggle menu">
+            <button onClick={toggleMenu} data-testid="nav-mobile-toggle" className={`lg:hidden w-10 h-10 flex items-center justify-center rounded-full border ${isTransparentOverDark ? 'border-white/20 bg-white/10 text-white' : 'border-hairline bg-white/70 text-obsidian'}`} aria-label="Toggle menu">
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
@@ -85,6 +97,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/case-studies') ? 'text-electric' : 'text-obsidian'}`} to="/case-studies">Case Studies</Link>
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/about') ? 'text-electric' : 'text-obsidian'}`} to="/about">About</Link>
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/blog') ? 'text-electric' : 'text-obsidian'}`} to="/blog">Insights</Link>
+              <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/careers') ? 'text-electric' : 'text-obsidian'}`} to="/careers">Careers</Link>
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/contact') ? 'text-electric' : 'text-obsidian'}`} to="/contact">Contact</Link>
               <Link onClick={toggleMenu} className="inline-flex items-center justify-center gap-2 bg-obsidian text-white text-sm font-semibold px-5 py-3 rounded-full mt-2" to="/contact">
                 Book a Discovery Call
@@ -103,7 +116,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
             <div className="lg:col-span-5">
               <Link to="/" className="inline-block">
-                <img alt="Integr8 Cloudware" className="h-8 sm:h-14 w-auto filter brightness-0 invert mix-blend-screen" src="/assets/i8cw_T.png" />
+                <img alt="Integr8 Cloudware" className="h-8 w-auto invert mix-blend-screen" src="/i8cw.png" />
               </Link>
               <p className="mt-6 text-sm leading-relaxed text-slate-400 max-w-sm">
                 Enterprise integration consultancy for NetSuite, Celigo, and Oracle Integration Cloud. We connect any ERP to any marketplace, any 3PL, anywhere in the world — flawlessly.
@@ -128,6 +141,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               <ul className="space-y-3">
                 <li><Link data-testid="footer-link-about" className="text-sm hover:text-white transition-colors duration-300" to="/about">About Us</Link></li>
                 <li><Link data-testid="footer-link-case-studies" className="text-sm hover:text-white transition-colors duration-300" to="/case-studies">Case Studies</Link></li>
+                <li><Link data-testid="footer-link-careers" className="text-sm hover:text-white transition-colors duration-300" to="/careers">Careers</Link></li>
                 <li><Link data-testid="footer-link-blog" className="text-sm hover:text-white transition-colors duration-300" to="/blog">Insights</Link></li>
                 <li><Link data-testid="footer-link-contact" className="text-sm hover:text-white transition-colors duration-300" to="/contact">Contact</Link></li>
               </ul>
