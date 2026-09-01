@@ -48,7 +48,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       <header data-testid="site-header" className={`fixed top-0 inset-x-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-hairline shadow-sm' : 'bg-transparent border-b border-transparent'}`}>
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 h-[76px] flex items-center justify-between">
           <Link data-testid="nav-logo-link" className="flex items-center group" to="/">
-            <img alt="Integr8 Cloudware" className={`h-6 sm:h-7 w-auto transition-all duration-300 ${isTransparentOverDark ? 'invert mix-blend-screen' : 'mix-blend-multiply'}`} src="/i8cw_T.png" />
+            <img alt="Integr8 Cloudware..." className={`h-6 sm:h-7 w-auto transition-all duration-300 ${isTransparentOverDark ? 'invert mix-blend-screen' : 'mix-blend-multiply'}`} src="assets/i8cw_T.png" />
           </Link>
           
           <nav className="hidden lg:flex items-center gap-9" data-testid="nav-desktop-menu">
