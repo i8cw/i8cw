@@ -24,7 +24,7 @@ const values = [
 ];
 
 const team = [
-  { name: 'Alex Vance', role: 'Founder & Chief Integration Architect', note: '7+ years across NetSuite, Celigo & Oracle ecosystems', initials: 'AV' },
+  // { name: 'Alex Vance', role: 'Founder & Chief Integration Architect', note: '7+ years across NetSuite, Celigo & Oracle ecosystems', initials: 'AV' },
   // { name: 'Sarah Whitfield', role: 'Head of NetSuite Practice', note: 'Former Big-4 ERP lead, 60+ implementations', initials: 'SW' },
   // { name: 'Diego Alvarez', role: 'Director, Middleware Engineering', note: 'Built connector platforms processing billions of records', initials: 'DA' },
   // { name: 'Priya Nair', role: 'Head of Delivery & SLA Governance', note: 'Keeper of the 99.99% reliability standard', initials: 'PN' }
@@ -108,7 +108,7 @@ export const About = () => {
         </div>
       </section>
 
-      <section className="py-24 sm:py-32">
+      {/* <section className="py-24 sm:py-32">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-faintink font-medium">Leadership</p>
@@ -125,7 +125,7 @@ export const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="pb-24 sm:pb-32">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
