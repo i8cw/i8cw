@@ -144,7 +144,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section className="py-24 sm:py-32 bg-obsidian text-white relative overflow-hidden">
+      {/* <section className="py-24 sm:py-32 bg-obsidian text-white relative overflow-hidden">
         <p className="absolute top-8 right-0 font-display font-extrabold text-[18vw] leading-none text-outline-light select-none pointer-events-none">PROOF</p>
         <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
@@ -167,7 +167,7 @@ export const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
       
 {/* Client Voices */}
       
