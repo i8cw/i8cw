@@ -31,13 +31,13 @@ const services = [
 const casePreview = [
   { metric: '10M+', label: 'orders / month', client: 'Global fashion retailer', detail: 'Shopify + NetSuite + 3PL unification' },
   { metric: '0', label: 'dropped orders', client: 'Electronics distributor', detail: '14 marketplaces via Celigo' },
-  { metric: '6 wks', label: 'to go-live', client: 'F&B manufacturer', detail: 'OIC + Oracle Fusion ERP' }
+  { metric: '6 wks', label: 'to go-live', client: 'F&B manufacturer', detail: 'OIC + NetSuite ERP' }
 ];
 
 const testimonials = [
-  { quote: 'Integr8 rebuilt our entire order pipeline. We went from daily firefighting to literally zero manual touches per order.', name: 'Daniel K.', role: 'VP Operations, Global Fashion Retailer' },
-  { quote: 'The only partner we\'ve worked with who treats integrations as engineering, not configuration. Flawless delivery.', name: 'Priya S.', role: 'CIO, Electronics Distribution Group' },
-  { quote: 'Our 3PL sync used to fail weekly. Since Integr8 took over, it hasn\'t failed once. Not once in fourteen months.', name: 'Marcus T.', role: 'Head of Supply Chain, D2C Brand' }
+  // { quote: 'Integr8 rebuilt our entire order pipeline. We went from daily firefighting to literally zero manual touches per order.', name: 'Daniel K.', role: 'VP Operations, Global Fashion Retailer' },
+  // { quote: 'The only partner we\'ve worked with who treats integrations as engineering, not configuration. Flawless delivery.', name: 'Priya S.', role: 'CIO, Electronics Distribution Group' },
+  // { quote: 'Our 3PL sync used to fail weekly. Since Integr8 took over, it hasn\'t failed once. Not once in fourteen months.', name: 'Marcus T.', role: 'Head of Supply Chain, D2C Brand' }
 ];
 
 export const Home = () => {
