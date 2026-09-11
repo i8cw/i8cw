@@ -192,7 +192,7 @@ export const Home = () => {
         </div>
       </section> */}
 
-      <section className="py-16 sm:py-20 bg-paper" aria-hidden="true" />
+      <section className="py-8 sm:py-10 bg-paper" aria-hidden="true" />
 
       <section className="pb-24 sm:pb-32">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
