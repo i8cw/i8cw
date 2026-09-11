@@ -168,8 +168,10 @@ export const Home = () => {
           </div>
         </div>
       </section>
-
-      <section className="py-24 sm:py-32">
+      
+{/* Client Voices */}
+      
+      {/* <section className="py-24 sm:py-32">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-faintink font-medium">Client voices</p>
@@ -188,7 +190,7 @@ export const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="pb-24 sm:pb-32">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
