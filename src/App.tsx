@@ -37,7 +37,7 @@ const AppRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
-        {/* <Route path="/case-studies" element={<PageTransition><CaseStudies /></PageTransition>} /> */}
+        <Route path="/case-studies" element={<PageTransition><CaseStudies /></PageTransition>} /> 
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
