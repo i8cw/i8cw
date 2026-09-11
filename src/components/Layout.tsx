@@ -56,10 +56,10 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               Services
               <span className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-electric origin-left transition-transform duration-300 ${isActive('/services') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </Link>
-            <Link data-testid="nav-link-case-studies" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${getNavLinkClass('/case-studies')}`} to="/case-studies">
+            {/* <Link data-testid="nav-link-case-studies" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${getNavLinkClass('/case-studies')}`} to="/case-studies">
               Case Studies
               <span className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-electric origin-left transition-transform duration-300 ${isActive('/case-studies') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
-            </Link>
+            </Link> */}
             <Link data-testid="nav-link-about" className={`relative text-sm font-medium tracking-wide transition-colors duration-300 group ${getNavLinkClass('/about')}`} to="/about">
               About
               <span className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-electric origin-left transition-transform duration-300 ${isActive('/about') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
@@ -94,7 +94,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="lg:hidden absolute top-[76px] left-0 w-full bg-white border-b border-hairline shadow-lg">
             <nav className="flex flex-col p-5 gap-4">
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/services') ? 'text-electric' : 'text-obsidian'}`} to="/services">Services</Link>
-              <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/case-studies') ? 'text-electric' : 'text-obsidian'}`} to="/case-studies">Case Studies</Link> 
+              {/* <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/case-studies') ? 'text-electric' : 'text-obsidian'}`} to="/case-studies">Case Studies</Link>  */}
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/about') ? 'text-electric' : 'text-obsidian'}`} to="/about">About</Link>
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/blog') ? 'text-electric' : 'text-obsidian'}`} to="/blog">Insights</Link>
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/careers') ? 'text-electric' : 'text-obsidian'}`} to="/careers">Careers</Link>
@@ -140,7 +140,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-slate-500 mb-5">Company</p>
               <ul className="space-y-3">
                 <li><Link data-testid="footer-link-about" className="text-sm hover:text-white transition-colors duration-300" to="/about">About Us</Link></li>
-                <li><Link data-testid="footer-link-case-studies" className="text-sm hover:text-white transition-colors duration-300" to="/case-studies">Case Studies</Link></li>
+                {/* <li><Link data-testid="footer-link-case-studies" className="text-sm hover:text-white transition-colors duration-300" to="/case-studies">Case Studies</Link></li> */}
                 <li><Link data-testid="footer-link-careers" className="text-sm hover:text-white transition-colors duration-300" to="/careers">Careers</Link></li>
                 <li><Link data-testid="footer-link-blog" className="text-sm hover:text-white transition-colors duration-300" to="/blog">Insights</Link></li>
                 <li><Link data-testid="footer-link-contact" className="text-sm hover:text-white transition-colors duration-300" to="/contact">Contact</Link></li>
