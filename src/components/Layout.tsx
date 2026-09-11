@@ -94,7 +94,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="lg:hidden absolute top-[76px] left-0 w-full bg-white border-b border-hairline shadow-lg">
             <nav className="flex flex-col p-5 gap-4">
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/services') ? 'text-electric' : 'text-obsidian'}`} to="/services">Services</Link>
-              <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/case-studies') ? 'text-electric' : 'text-obsidian'}`} to="/case-studies">Case Studies</Link>
+              {/* <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/case-studies') ? 'text-electric' : 'text-obsidian'}`} to="/case-studies">Case Studies</Link> */}
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/about') ? 'text-electric' : 'text-obsidian'}`} to="/about">About</Link>
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/blog') ? 'text-electric' : 'text-obsidian'}`} to="/blog">Insights</Link>
               <Link onClick={toggleMenu} className={`text-base font-medium ${isActive('/careers') ? 'text-electric' : 'text-obsidian'}`} to="/careers">Careers</Link>
